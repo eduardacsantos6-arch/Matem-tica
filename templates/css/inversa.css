@@ -1,0 +1,455 @@
+/* =========================================================
+   MATRIZ INVERSA
+   ========================================================= */
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.page-hero {
+    min-height: 300px;
+
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    align-items: center;
+
+    gap: 50px;
+
+    margin-bottom: 45px;
+}
+
+.page-hero h1 {
+    margin: 10px 0;
+
+    color: var(--azul-escuro);
+
+    font-size: 42px;
+    line-height: 1.1;
+}
+
+.page-hero p {
+    max-width: 650px;
+
+    color: var(--texto-claro);
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.inverse-symbol {
+    width: 220px;
+    height: 220px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: auto;
+
+    border: 1px solid var(--borda);
+    border-radius: 28px;
+
+    background: linear-gradient(
+        135deg,
+        var(--verde-claro),
+        #ffffff
+    );
+
+    color: var(--azul);
+
+    font-size: 34px;
+    font-weight: bold;
+
+    box-shadow: var(--sombra);
+}
+
+
+/* =========================================================
+   CONTEÚDO
+   ========================================================= */
+
+.inverse-content {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+
+    gap: 22px;
+
+    margin-bottom: 60px;
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.inverse-content .card {
+    padding: 30px;
+
+    background: var(--branco);
+
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+
+    box-shadow: var(--sombra);
+}
+
+.inverse-content .card h2 {
+    margin: 9px 0 7px;
+
+    color: var(--azul-escuro);
+
+    font-size: 22px;
+}
+
+.inverse-content .card > p {
+    margin-bottom: 22px;
+
+    color: var(--texto-claro);
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+.inverse-form form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.inverse-form label {
+    color: var(--azul-escuro);
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.inverse-form select {
+    width: 100%;
+    height: 44px;
+
+    padding: 0 12px;
+
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+
+    background: white;
+
+    color: var(--texto);
+
+    font-size: 14px;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+.inverse-form select:focus {
+    border-color: var(--azul-claro);
+
+    box-shadow:
+        0 0 0 3px rgba(42, 167, 184, 0.12);
+}
+
+
+/* =========================================================
+   ÁREA DA MATRIZ
+   ========================================================= */
+
+.matrix-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 28px 0;
+}
+
+.matrix-area .bracket {
+    color: var(--azul);
+
+    font-size: 65px;
+    font-weight: 300;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   MATRIZ 2 × 2
+   ========================================================= */
+
+.matrix-area .matrix {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 72px);
+
+    gap: 9px;
+}
+
+.matrix-area .matrix input {
+    width: 72px;
+    height: 50px;
+
+    box-sizing: border-box;
+
+    padding: 0 8px;
+
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+
+    background: white;
+
+    color: var(--azul-escuro);
+
+    text-align: center;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+.matrix-area .matrix input::placeholder {
+    color: #9aaeb8;
+}
+
+.matrix-area .matrix input:focus {
+    border-color: var(--azul-claro);
+
+    box-shadow:
+        0 0 0 3px rgba(42, 167, 184, 0.12);
+}
+
+
+/* =========================================================
+   EXPLICAÇÃO
+   ========================================================= */
+
+.explanation {
+    display: flex;
+    flex-direction: column;
+}
+
+.explanation .formula {
+    margin: 18px 0;
+
+    padding: 20px;
+
+    border-radius: 14px;
+
+    background: var(--verde-claro);
+
+    color: var(--azul-escuro);
+
+    text-align: center;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.explanation > p {
+    margin-bottom: 20px;
+
+    color: var(--texto-claro);
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CONDIÇÕES
+   ========================================================= */
+
+.condition {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 10px;
+    padding: 15px;
+
+    border: 1px solid #d2ebe5;
+    border-radius: 12px;
+
+    background: #f2fbf8;
+}
+
+.condition span {
+    color: var(--azul-escuro);
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.condition small {
+    color: var(--texto-claro);
+
+    font-size: 11px;
+
+    text-align: right;
+}
+
+.condition.danger {
+    border-color: #f0d1d1;
+
+    background: #fff5f5;
+}
+
+.condition.danger span {
+    color: var(--danger);
+}
+
+.condition.danger small {
+    color: #a45c5c;
+}
+
+
+/* =========================================================
+   TESTES
+   ========================================================= */
+
+.test-section {
+    margin-bottom: 55px;
+
+    padding: 30px;
+
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+
+    background: var(--verde-claro);
+}
+
+.test-section h2 {
+    margin: 8px 0 25px;
+
+    color: var(--azul-escuro);
+
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   GRID DOS TESTES
+   ========================================================= */
+
+.test-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.test-grid > div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    padding: 20px;
+
+    border: 1px solid rgba(42, 167, 184, 0.18);
+    border-radius: 14px;
+
+    background: white;
+}
+
+.test-grid strong {
+    color: var(--azul-escuro);
+
+    font-size: 14px;
+}
+
+.test-grid span {
+    color: var(--texto-claro);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   BOTÃO
+   ========================================================= */
+
+.inverse-form .button {
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .page-hero {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .inverse-symbol {
+        width: 150px;
+        height: 150px;
+
+        margin: 0;
+    }
+
+    .inverse-content {
+        grid-template-columns: 1fr;
+    }
+
+    .test-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .page-hero h1 {
+        font-size: 34px;
+    }
+
+    .inverse-content .card {
+        padding: 22px;
+    }
+
+    .matrix-area .matrix {
+        grid-template-columns:
+            repeat(2, 60px);
+    }
+
+    .matrix-area .matrix input {
+        width: 60px;
+        height: 45px;
+    }
+
+    .matrix-area .bracket {
+        font-size: 55px;
+    }
+
+    .condition {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .condition small {
+        text-align: left;
+    }
+}

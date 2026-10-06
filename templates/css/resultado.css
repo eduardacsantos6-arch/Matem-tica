@@ -1,0 +1,180 @@
+/* =========================
+   CABEÇALHO
+========================= */
+
+.result-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.result-header h1 {
+    color: var(--azul-escuro);
+    font-size: 44px;
+    margin-bottom: 12px;
+}
+
+.result-header p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: var(--texto-claro);
+}
+
+/* =========================
+   RESULTADO
+========================= */
+
+.result-box {
+    max-width: 800px;
+    margin: 0 auto;
+
+    padding: 40px;
+
+    text-align: center;
+}
+
+.result-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background: var(--verde-claro);
+    color: var(--azul);
+
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.result-box h2 {
+    color: var(--azul-escuro);
+    margin-bottom: 10px;
+}
+
+.result-box > p {
+    color: var(--texto-claro);
+    font-size: 14px;
+}
+
+/* =========================
+   RESULTADO MATEMÁTICO
+========================= */
+
+.result-math {
+    margin: 30px 0;
+    padding: 25px;
+
+    background: var(--azul-escuro);
+    border-radius: 16px;
+
+    color: white;
+
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.result-placeholder {
+    color: #bcd0d7;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+/* =========================
+   RESUMO
+========================= */
+
+.result-summary {
+    margin-top: 50px;
+}
+
+.result-summary h2 {
+    color: var(--azul-escuro);
+    margin-bottom: 20px;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.summary-card {
+    padding: 22px;
+
+    background: white;
+    border: 1px solid var(--borda);
+    border-radius: 15px;
+
+    text-align: left;
+}
+
+.summary-card strong {
+    display: block;
+    color: var(--azul);
+    margin-bottom: 6px;
+}
+
+.summary-card span {
+    color: var(--texto-claro);
+    font-size: 12px;
+}
+
+/* =========================
+   PRECISÃO
+========================= */
+
+.precision-note {
+    margin-top: 35px;
+    padding: 20px;
+
+    background: var(--verde-claro);
+    border-radius: 13px;
+
+    text-align: center;
+}
+
+.precision-note strong {
+    color: var(--azul-escuro);
+}
+
+.precision-note p {
+    margin-top: 4px;
+    color: var(--texto-claro);
+    font-size: 12px;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+.result-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-top: 28px;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 700px) {
+    .result-box {
+        padding: 25px;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .result-header h1 {
+        font-size: 36px;
+    }
+}

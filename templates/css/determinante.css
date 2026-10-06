@@ -1,0 +1,424 @@
+/* =========================================================
+   DETERMINANTE
+   ========================================================= */
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.page-hero {
+    min-height: 300px;
+
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    align-items: center;
+
+    gap: 50px;
+
+    margin-bottom: 45px;
+}
+
+.page-hero h1 {
+    margin: 10px 0;
+
+    color: var(--azul-escuro);
+
+    font-size: 42px;
+    line-height: 1.1;
+}
+
+.page-hero p {
+    max-width: 650px;
+
+    color: var(--texto-claro);
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.det-symbol {
+    width: 220px;
+    height: 220px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: auto;
+
+    border: 1px solid var(--borda);
+    border-radius: 28px;
+
+    background: linear-gradient(
+        135deg,
+        var(--verde-claro),
+        #ffffff
+    );
+
+    color: var(--azul);
+
+    font-size: 30px;
+    font-weight: bold;
+
+    box-shadow: var(--sombra);
+}
+
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+   ========================================================= */
+
+.det-content {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+
+    gap: 22px;
+
+    margin-bottom: 60px;
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.det-content .card {
+    padding: 30px;
+
+    background: var(--branco);
+
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+
+    box-shadow: var(--sombra);
+}
+
+.det-content .card h2 {
+    margin: 9px 0 7px;
+
+    color: var(--azul-escuro);
+
+    font-size: 22px;
+}
+
+.det-content .card > p {
+    margin-bottom: 22px;
+
+    color: var(--texto-claro);
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+.det-form form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.det-form label {
+    color: var(--azul-escuro);
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.det-form select {
+    width: 100%;
+    height: 44px;
+
+    padding: 0 12px;
+
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+
+    background: white;
+
+    color: var(--texto);
+
+    font-size: 14px;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+.det-form select:focus {
+    border-color: var(--azul-claro);
+
+    box-shadow:
+        0 0 0 3px rgba(42, 167, 184, 0.12);
+}
+
+
+/* =========================================================
+   MATRIZ
+   ========================================================= */
+
+.matrix-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 28px 0;
+}
+
+.matrix-box .bracket {
+    color: var(--azul);
+
+    font-size: 65px;
+    font-weight: 300;
+
+    line-height: 1;
+}
+
+.matrix {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 72px);
+
+    gap: 9px;
+}
+
+.matrix input {
+    width: 72px;
+    height: 50px;
+
+    box-sizing: border-box;
+
+    padding: 0 8px;
+
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+
+    background: white;
+
+    color: var(--azul-escuro);
+
+    text-align: center;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+.matrix input::placeholder {
+    color: #9aaeb8;
+}
+
+.matrix input:focus {
+    border-color: var(--azul-claro);
+
+    box-shadow:
+        0 0 0 3px rgba(42, 167, 184, 0.12);
+}
+
+
+/* =========================================================
+   MÉTODOS MATEMÁTICOS
+   ========================================================= */
+
+.methods {
+    display: flex;
+    flex-direction: column;
+}
+
+.methods > .eyebrow {
+    margin-bottom: 4px;
+}
+
+.method {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 15px;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid var(--borda);
+}
+
+.method:last-child {
+    border-bottom: none;
+}
+
+.method > span {
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--verde-claro);
+
+    color: var(--azul);
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.method strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--azul-escuro);
+
+    font-size: 14px;
+}
+
+.method p {
+    margin: 0;
+
+    color: var(--texto-claro);
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   ÁREA DE TESTES
+   ========================================================= */
+
+.test-section {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+
+    align-items: center;
+
+    gap: 40px;
+
+    margin-bottom: 55px;
+
+    padding: 30px;
+
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+
+    background: var(--verde-claro);
+}
+
+.test-section h2 {
+    margin-top: 8px;
+
+    color: var(--azul-escuro);
+
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   ITENS DOS TESTES
+   ========================================================= */
+
+.test-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+}
+
+.test-items span {
+    display: block;
+
+    padding: 13px 15px;
+
+    border: 1px solid rgba(42, 167, 184, 0.18);
+    border-radius: 10px;
+
+    background: white;
+
+    color: var(--azul-escuro);
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   BOTÃO
+   ========================================================= */
+
+.det-form .button {
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .page-hero {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .det-symbol {
+        width: 150px;
+        height: 150px;
+
+        margin: 0;
+    }
+
+    .det-content {
+        grid-template-columns: 1fr;
+    }
+
+    .test-section {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .page-hero h1 {
+        font-size: 34px;
+    }
+
+    .det-content .card {
+        padding: 22px;
+    }
+
+    .matrix {
+        grid-template-columns:
+            repeat(3, 58px);
+    }
+
+    .matrix input {
+        width: 58px;
+        height: 45px;
+    }
+
+    .matrix-box .bracket {
+        font-size: 55px;
+    }
+
+    .test-items {
+        grid-template-columns: 1fr;
+    }
+}
