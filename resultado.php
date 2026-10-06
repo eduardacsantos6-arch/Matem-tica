@@ -1,10 +1,87 @@
 <?php
 
+require_once __DIR__ . '/Model/AlgebraLinear.php';
+require_once __DIR__ . '/Controller/MatrizController.php';
+
+use Controller\MatrizController;
+
 $pageTitle = "Álgebra Linear | Resultado";
+
+$tipo = $_POST['tipo'] ?? '';
+
+$resultado = null;
+$erro = null;
+
+$nomeOperacao = '';
+
+
+try {
+
+    $controller = new MatrizController();
+
+
+    switch ($tipo) {
+
+        case 'soma':
+
+            $nomeOperacao = 'Soma de matrizes';
+
+            $matrizA = $_POST['matrizA'] ?? [];
+            $matrizB = $_POST['matrizB'] ?? [];
+
+            $resultado = $controller->somar($matrizA, $matrizB);
+
+            break;
+
+
+        case 'subtracao':
+
+            $nomeOperacao = 'Subtração de matrizes';
+
+            $matrizA = $_POST['matrizA'] ?? [];
+            $matrizB = $_POST['matrizB'] ?? [];
+
+            $resultado = $controller->subtrair($matrizA, $matrizB);
+
+            break;
+
+        case 'multiplicacao':
+
+            $nomeOperacao = 'Multiplicação de matrizes';
+
+            $matrizA = $_POST['matrizA'] ?? [];
+            $matrizB = $_POST['matrizB'] ?? [];
+
+            $resultado = $controller->multiplicar($matrizA, $matrizB);
+
+            break;
+
+        case 'transposta':
+
+            $nomeOperacao = 'Transposição de matriz';
+
+            $matriz = $_POST['matriz'] ?? [];
+
+            $resultado = $controller->transpor($matriz);
+
+            break;
+
+        default:
+
+            throw new Exception (
+                'Operação não identificada.');
+    }
+
+} catch (Throwable $e) {
+
+    $erro = $e->getMessage();
+
+}
 
 ?>
 
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
@@ -26,7 +103,6 @@ $pageTitle = "Álgebra Linear | Resultado";
     <link
         rel="stylesheet"
         href="templates/css/resultado.css"
-        href="templates/css/global.css"
     >
 
 </head>
@@ -55,7 +131,6 @@ $pageTitle = "Álgebra Linear | Resultado";
 
     </a>
 
-
     <nav class="nav">
 
         <a href="index.php">
@@ -80,7 +155,6 @@ $pageTitle = "Álgebra Linear | Resultado";
 
     </nav>
 
-
     <a
         href="index.php"
         class="header-button"
@@ -93,6 +167,8 @@ $pageTitle = "Álgebra Linear | Resultado";
 
 <main class="page">
 
+    <!-- HERO -->
+
     <section class="result-hero">
 
         <span class="eyebrow">
@@ -104,17 +180,15 @@ $pageTitle = "Álgebra Linear | Resultado";
         </h1>
 
         <p>
-
-            Nesta área será apresentado o resultado produzido
-            pelo algoritmo PHP.
-
+            Confira o resultado produzido pelo algoritmo
+            de Álgebra Linear.
         </p>
 
     </section>
 
-
     <section class="result-layout">
 
+        <!-- RESULTADO -->
 
         <div class="result-card">
 
@@ -132,38 +206,82 @@ $pageTitle = "Álgebra Linear | Resultado";
 
                 </div>
 
+                <?php if ($erro === null): ?>
 
-                <span class="result-status">
-                    Aguardando cálculo
-                </span>
+                    <span class="result-status success">
+                        Concluído
+                    </span>
+
+                <?php else: ?>
+
+                    <span class="result-status error">
+                        Erro
+                    </span>
+
+                <?php endif; ?>
 
             </div>
 
 
             <div class="result-display">
 
-                <div class="result-matrix">
 
-                    <span>—</span>
-                    <span>—</span>
+                <?php if ($erro !== null): ?>
 
-                    <span>—</span>
-                    <span>—</span>
+                    <div class="error-message">
 
-                </div>
+                        <strong>
+                            Não foi possível realizar o cálculo.
+                        </strong>
+
+                        <p>
+                            <?= htmlspecialchars($erro) ?>
+                        </p>
+
+                    </div>
 
 
-                <p>
+                <?php elseif (is_array($resultado)): ?>
 
-                    O algoritmo será responsável por substituir
-                    esta área pelo resultado real.
 
-                </p>
+                    <div class="result-matrix">
+
+                        <?php foreach ($resultado as $linha): ?>
+
+                            <div class="result-row">
+
+                                <?php foreach ($linha as $valor): ?>
+
+                                    <span>
+                                        <?= htmlspecialchars(
+                                            (string) $valor
+                                        ) ?>
+                                    </span>
+
+                                <?php endforeach; ?>
+
+                            </div>
+
+                        <?php endforeach; ?>
+
+                    </div>
+
+
+                <?php else: ?>
+
+                    <p>
+                        Nenhum resultado foi encontrado.
+                    </p>
+
+                <?php endif; ?>
+
 
             </div>
 
         </div>
 
+
+        <!-- RESUMO -->
 
         <aside class="summary-card">
 
@@ -175,7 +293,6 @@ $pageTitle = "Álgebra Linear | Resultado";
                 Informações
             </h2>
 
-
             <div class="summary">
 
                 <div>
@@ -185,11 +302,10 @@ $pageTitle = "Álgebra Linear | Resultado";
                     </span>
 
                     <strong>
-                        —
+                        <?= htmlspecialchars($nomeOperacao) ?>
                     </strong>
 
                 </div>
-
 
                 <div>
 
@@ -198,11 +314,10 @@ $pageTitle = "Álgebra Linear | Resultado";
                     </span>
 
                     <strong>
-                        —
+                        Matriz
                     </strong>
 
                 </div>
-
 
                 <div>
 
@@ -211,11 +326,20 @@ $pageTitle = "Álgebra Linear | Resultado";
                     </span>
 
                     <strong>
-                        —
+
+                        <?php if ($erro === null): ?>
+
+                            Calculado
+
+                        <?php else: ?>
+
+                            Não calculado
+
+                        <?php endif; ?>
+
                     </strong>
 
                 </div>
-
 
                 <div>
 
@@ -223,9 +347,19 @@ $pageTitle = "Álgebra Linear | Resultado";
                         Status
                     </span>
 
-                    <strong class="waiting">
-                        Aguardando
-                    </strong>
+                    <?php if ($erro === null): ?>
+
+                        <strong class="success">
+                            Concluído
+                        </strong>
+
+                    <?php else: ?>
+
+                        <strong class="error">
+                            Erro
+                        </strong>
+
+                    <?php endif; ?>
 
                 </div>
 
@@ -252,6 +386,8 @@ $pageTitle = "Álgebra Linear | Resultado";
     </section>
 
 
+    <!-- PRECISÃO -->
+
     <section class="precision">
 
         <div class="precision-icon">
@@ -269,16 +405,15 @@ $pageTitle = "Álgebra Linear | Resultado";
             </h2>
 
             <p>
-
                 Os testes de números de ponto flutuante utilizarão
                 uma margem de erro de <strong>0,0001</strong>,
                 conforme definido no planejamento de testes.
-
             </p>
 
         </div>
 
     </section>
+
 
 </main>
 
@@ -334,5 +469,4 @@ $pageTitle = "Álgebra Linear | Resultado";
 </footer>
 
 </body>
-
 </html>

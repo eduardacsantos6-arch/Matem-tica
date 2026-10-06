@@ -2,6 +2,31 @@
 
 $pageTitle = "Álgebra Linear | Matrizes";
 
+$operacao = $_POST['operacao'] ?? 'soma';
+$etapa = $_POST['etapa'] ?? '';
+
+$linhas = (int) ($_POST['linhas'] ?? 2);
+$colunas = (int) ($_POST['colunas'] ?? 2);
+
+$linhasA = (int) ($_POST['linhasA'] ?? 2);
+$colunasA = (int) ($_POST['colunasA'] ?? 2);
+$colunasB = (int) ($_POST['colunasB'] ?? 2);
+
+
+$linhas = max(1, min(10, $linhas));
+$colunas = max(1, min(10, $colunas));
+
+$linhasA = max(1, min(10, $linhasA));
+$colunasA = max(1, min(10, $colunasA));
+$colunasB = max(1, min(10, $colunasB));
+
+if ($operacao === 'soma' || $operacao === 'subtracao') {
+    $linhasA = $linhas;
+    $colunasA = $colunas;
+}
+
+$linhasB = $colunasA;
+
 ?>
 
 <!DOCTYPE html>
@@ -18,8 +43,8 @@ $pageTitle = "Álgebra Linear | Matrizes";
 
     <title><?= $pageTitle ?></title>
 
-<link rel="stylesheet" href="templates/css/global.css">
-<link rel="stylesheet" href="templates/css/matrizes.css">
+    <link rel="stylesheet" href="templates/css/global.css">
+    <link rel="stylesheet" href="templates/css/matrizes.css">
 
 </head>
 
@@ -47,17 +72,13 @@ $pageTitle = "Álgebra Linear | Matrizes";
 
     </a>
 
-
     <nav class="nav">
 
         <a href="index.php">
             Início
         </a>
 
-        <a
-            href="matrizes.php"
-            class="active"
-        >
+        <a href="matrizes.php" class="active">
             Matrizes
         </a>
 
@@ -75,7 +96,6 @@ $pageTitle = "Álgebra Linear | Matrizes";
 
     </nav>
 
-
     <a
         href="sistemas.php"
         class="header-button"
@@ -87,6 +107,8 @@ $pageTitle = "Álgebra Linear | Matrizes";
 
 
 <main class="page">
+
+    <!-- HERO -->
 
     <section class="page-hero">
 
@@ -101,14 +123,11 @@ $pageTitle = "Álgebra Linear | Matrizes";
             </h1>
 
             <p>
-
                 Realize soma, subtração, multiplicação
                 e transposição de matrizes.
-
             </p>
 
         </div>
-
 
         <div class="symbol-box">
             A + B
@@ -119,6 +138,7 @@ $pageTitle = "Álgebra Linear | Matrizes";
 
     <section class="operation-area">
 
+        <!-- ETAPA 01 -->
 
         <div class="operation-card">
 
@@ -140,6 +160,13 @@ $pageTitle = "Álgebra Linear | Matrizes";
                 method="post"
             >
 
+                <input
+                    type="hidden"
+                    name="etapa"
+                    value="preparar"
+                >
+
+
                 <label for="operacao">
                     Operação
                 </label>
@@ -149,76 +176,164 @@ $pageTitle = "Álgebra Linear | Matrizes";
                     name="operacao"
                 >
 
-                    <option value="soma">
+                    <option
+                        value="soma"
+                        <?= $operacao === 'soma' ? 'selected' : '' ?>
+                    >
                         Soma de matrizes
                     </option>
 
-                    <option value="subtracao">
+                    <option
+                        value="subtracao"
+                        <?= $operacao === 'subtracao' ? 'selected' : '' ?>
+                    >
                         Subtração de matrizes
                     </option>
 
-                    <option value="multiplicacao">
+                    <option
+                        value="multiplicacao"
+                        <?= $operacao === 'multiplicacao' ? 'selected' : '' ?>
+                    >
                         Multiplicação de matrizes
                     </option>
 
-                    <option value="transposta">
+                    <option
+                        value="transposta"
+                        <?= $operacao === 'transposta' ? 'selected' : '' ?>
+                    >
                         Transposição de matriz
                     </option>
 
                 </select>
 
 
-                <div class="dimensions">
+                <?php if ($operacao === 'multiplicacao'): ?>
 
-                    <div>
+                    <div class="dimensions">
 
-                        <label for="linhas">
-                            Linhas
-                        </label>
+                        <div>
 
-                        <input
-                            type="number"
-                            id="linhas"
-                            name="linhas"
-                            value="2"
-                            min="1"
-                            max="10"
-                        >
+                            <label for="linhasA">
+                                Linhas de A
+                            </label>
+
+                            <input
+                                type="number"
+                                id="linhasA"
+                                name="linhasA"
+                                value="<?= $linhasA ?>"
+                                min="1"
+                                max="10"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="colunasA">
+                                Colunas de A
+                            </label>
+
+                            <input
+                                type="number"
+                                id="colunasA"
+                                name="colunasA"
+                                value="<?= $colunasA ?>"
+                                min="1"
+                                max="10"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="colunasB">
+                                Colunas de B
+                            </label>
+
+                            <input
+                                type="number"
+                                id="colunasB"
+                                name="colunasB"
+                                value="<?= $colunasB ?>"
+                                min="1"
+                                max="10"
+                                required
+                            >
+
+                        </div>
 
                     </div>
 
+                    <p class="notice">
+                        A será <?= $linhasA ?> × <?= $colunasA ?> e
+                        B será <?= $linhasB ?> × <?= $colunasB ?>.
+                    </p>
 
-                    <div>
 
-                        <label for="colunas">
-                            Colunas
-                        </label>
+                <?php else: ?>
 
-                        <input
-                            type="number"
-                            id="colunas"
-                            name="colunas"
-                            value="2"
-                            min="1"
-                            max="10"
-                        >
+                    <div class="dimensions">
+
+                        <div>
+
+                            <label for="linhas">
+                                Linhas
+                            </label>
+
+                            <input
+                                type="number"
+                                id="linhas"
+                                name="linhas"
+                                value="<?= $linhas ?>"
+                                min="1"
+                                max="10"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="colunas">
+                                Colunas
+                            </label>
+
+                            <input
+                                type="number"
+                                id="colunas"
+                                name="colunas"
+                                value="<?= $colunas ?>"
+                                min="1"
+                                max="10"
+                                required
+                            >
+
+                        </div>
 
                     </div>
 
-                </div>
+                <?php endif; ?>
 
 
                 <button
                     type="submit"
                     class="button primary full"
                 >
-                    Preparar matriz →
+                    Preparar matrizes →
                 </button>
 
             </form>
 
         </div>
 
+
+        <!-- ETAPA 02 -->
 
         <div class="matrix-card">
 
@@ -231,98 +346,297 @@ $pageTitle = "Álgebra Linear | Matrizes";
                     </span>
 
                     <h2>
-                        Entrada da matriz
+                        Entrada das matrizes
                     </h2>
 
                 </div>
 
-                <span class="tag">
-                    2 × 2
-                </span>
-
             </div>
 
 
-            <form
-                action="resultado.php"
-                method="post"
-            >
+            <?php if ($etapa === 'preparar'): ?>
 
-                <input
-                    type="hidden"
-                    name="tipo"
-                    value="matriz"
+
+                <form
+                    action="resultado.php"
+                    method="post"
                 >
 
-
-                <div class="matrix-wrapper">
-
-                    <span class="bracket">
-                        [
-                    </span>
-
-
-                    <div class="matrix-input">
-
-                        <input
-                            type="number"
-                            name="matriz[0][0]"
-                            placeholder="0"
-                            step="any"
-                        >
-
-                        <input
-                            type="number"
-                            name="matriz[0][1]"
-                            placeholder="0"
-                            step="any"
-                        >
-
-                        <input
-                            type="number"
-                            name="matriz[1][0]"
-                            placeholder="0"
-                            step="any"
-                        >
-
-                        <input
-                            type="number"
-                            name="matriz[1][1]"
-                            placeholder="0"
-                            step="any"
-                        >
-
-                    </div>
+                    <input
+                        type="hidden"
+                        name="tipo"
+                        value="<?= htmlspecialchars($operacao) ?>"
+                    >
 
 
-                    <span class="bracket">
-                        ]
-                    </span>
+                    <?php if ($operacao === 'soma' || $operacao === 'subtracao'): ?>
 
-                </div>
+                        <!-- MATRIZ A -->
 
+                        <h3>
+                            Matriz A
+                        </h3>
+
+                        <div class="matrix-wrapper">
+
+                            <span class="bracket">
+                                [
+                            </span>
+
+                            <div
+                                class="matrix-input"
+                                style="grid-template-columns: repeat(<?= $colunas ?>, 72px);"
+                            >
+
+                                <?php for ($i = 0; $i < $linhas; $i++): ?>
+
+                                    <?php for ($j = 0; $j < $colunas; $j++): ?>
+
+                                        <input
+                                            type="number"
+                                            name="matrizA[<?= $i ?>][<?= $j ?>]"
+                                            placeholder="0"
+                                            step="any"
+                                            required
+                                        >
+
+                                    <?php endfor; ?>
+
+                                <?php endfor; ?>
+
+                            </div>
+
+                            <span class="bracket">
+                                ]
+                            </span>
+
+                        </div>
+
+
+                        <!-- MATRIZ B -->
+
+                        <h3>
+                            Matriz B
+                        </h3>
+
+                        <div class="matrix-wrapper">
+
+                            <span class="bracket">
+                                [
+                            </span>
+
+                            <div
+                                class="matrix-input"
+                                style="grid-template-columns: repeat(<?= $colunas ?>, 72px);"
+                            >
+
+                                <?php for ($i = 0; $i < $linhas; $i++): ?>
+
+                                    <?php for ($j = 0; $j < $colunas; $j++): ?>
+
+                                        <input
+                                            type="number"
+                                            name="matrizB[<?= $i ?>][<?= $j ?>]"
+                                            placeholder="0"
+                                            step="any"
+                                            required
+                                        >
+
+                                    <?php endfor; ?>
+
+                                <?php endfor; ?>
+
+                            </div>
+
+                            <span class="bracket">
+                                ]
+                            </span>
+
+                        </div>
+
+
+                    <?php elseif ($operacao === 'multiplicacao'): ?>
+
+                        <!-- MATRIZ A -->
+
+                        <h3>
+                            Matriz A — <?= $linhasA ?> × <?= $colunasA ?>
+                        </h3>
+
+                        <div class="matrix-wrapper">
+
+                            <span class="bracket">
+                                [
+                            </span>
+
+                            <div
+                                class="matrix-input"
+                                style="grid-template-columns: repeat(<?= $colunasA ?>, 72px);"
+                            >
+
+                                <?php for ($i = 0; $i < $linhasA; $i++): ?>
+
+                                    <?php for ($j = 0; $j < $colunasA; $j++): ?>
+
+                                        <input
+                                            type="number"
+                                            name="matrizA[<?= $i ?>][<?= $j ?>]"
+                                            placeholder="0"
+                                            step="any"
+                                            required
+                                        >
+
+                                    <?php endfor; ?>
+
+                                <?php endfor; ?>
+
+                            </div>
+
+                            <span class="bracket">
+                                ]
+                            </span>
+
+                        </div>
+
+
+                        <!-- MATRIZ B -->
+
+                        <h3>
+                            Matriz B — <?= $linhasB ?> × <?= $colunasB ?>
+                        </h3>
+
+                        <div class="matrix-wrapper">
+
+                            <span class="bracket">
+                                [
+                            </span>
+
+                            <div
+                                class="matrix-input"
+                                style="grid-template-columns: repeat(<?= $colunasB ?>, 72px);"
+                            >
+
+                                <?php for ($i = 0; $i < $linhasB; $i++): ?>
+
+                                    <?php for ($j = 0; $j < $colunasB; $j++): ?>
+
+                                        <input
+                                            type="number"
+                                            name="matrizB[<?= $i ?>][<?= $j ?>]"
+                                            placeholder="0"
+                                            step="any"
+                                            required
+                                        >
+
+                                    <?php endfor; ?>
+
+                                <?php endfor; ?>
+
+                            </div>
+
+                            <span class="bracket">
+                                ]
+                            </span>
+
+                        </div>
+
+
+                    <?php else: ?>
+
+                        <!-- MATRIZ ÚNICA -->
+
+                        <h3>
+                            Matriz A — <?= $linhas ?> × <?= $colunas ?>
+                        </h3>
+
+                        <div class="matrix-wrapper">
+
+                            <span class="bracket">
+                                [
+                            </span>
+
+                            <div
+                                class="matrix-input"
+                                style="grid-template-columns: repeat(<?= $colunas ?>, 72px);"
+                            >
+
+                                <?php for ($i = 0; $i < $linhas; $i++): ?>
+
+                                    <?php for ($j = 0; $j < $colunas; $j++): ?>
+
+                                        <input
+                                            type="number"
+                                            name="matriz[<?= $i ?>][<?= $j ?>]"
+                                            placeholder="0"
+                                            step="any"
+                                            required
+                                        >
+
+                                    <?php endfor; ?>
+
+                                <?php endfor; ?>
+
+                            </div>
+
+                            <span class="bracket">
+                                ]
+                            </span>
+
+                        </div>
+
+                    <?php endif; ?>
+
+
+                    <p class="notice">
+
+                        <?php if ($operacao === 'soma'): ?>
+
+                            Digite os valores das matrizes A e B para realizar a soma.
+
+                        <?php elseif ($operacao === 'subtracao'): ?>
+
+                            Digite os valores das matrizes A e B para realizar a subtração.
+
+                        <?php elseif ($operacao === 'multiplicacao'): ?>
+
+                            O número de colunas de A é igual ao número de linhas de B.
+
+                        <?php else: ?>
+
+                            Digite os valores da matriz que deseja transpor.
+
+                        <?php endif; ?>
+
+                    </p>
+
+
+                    <button
+                        type="submit"
+                        class="button secondary"
+                    >
+                        Executar operação
+                    </button>
+
+                </form>
+
+
+            <?php else: ?>
 
                 <p class="notice">
 
-                    A quantidade de campos será adaptada pelo
-                    algoritmo quando o backend for conectado.
+                    Escolha uma operação e informe as dimensões
+                    das matrizes para começar.
 
                 </p>
 
-
-                <button
-                    type="submit"
-                    class="button secondary"
-                >
-                    Executar operação
-                </button>
-
-            </form>
+            <?php endif; ?>
 
         </div>
 
     </section>
 
+
+    <!-- OPERAÇÕES -->
 
     <section class="operations-list">
 
@@ -413,6 +727,8 @@ $pageTitle = "Álgebra Linear | Matrizes";
     </section>
 
 
+    <!-- TESTES -->
+
     <section class="test-note">
 
         <div class="test-icon">
@@ -430,10 +746,9 @@ $pageTitle = "Álgebra Linear | Matrizes";
             </h2>
 
             <p>
-
-                O planejamento inclui matrizes nulas, matriz identidade,
-                matriz 1×1 e dimensões incompatíveis.
-
+                O planejamento inclui matrizes nulas,
+                matriz identidade, matriz 1×1 e dimensões
+                incompatíveis.
             </p>
 
         </div>
@@ -458,7 +773,6 @@ $pageTitle = "Álgebra Linear | Matrizes";
             </p>
 
         </div>
-
 
         <div class="footer-students">
 
@@ -494,5 +808,4 @@ $pageTitle = "Álgebra Linear | Matrizes";
 </footer>
 
 </body>
-
 </html>
