@@ -18,16 +18,8 @@ $pageTitle = "Álgebra Linear | Matriz Inversa";
 
     <title><?= $pageTitle ?></title>
 
-    <link
-        rel="stylesheet"
-        href="templates/css/global.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="templates/css/inversa.css"
-        href="templates/css/global.css"
-    >
+<link rel="stylesheet" href="../templates/css/global.css">
+<link rel="stylesheet" href="../templates/css/inversa.css">
 
 </head>
 
@@ -35,7 +27,7 @@ $pageTitle = "Álgebra Linear | Matriz Inversa";
 
 <header class="header">
 
-    <a href="index.php" class="logo">
+     <a href="../index.php" class="logo">
 
         <span class="logo-symbol">
             λ
@@ -58,7 +50,7 @@ $pageTitle = "Álgebra Linear | Matriz Inversa";
 
     <nav class="nav">
 
-        <a href="index.php">
+        <a href="../index.php">
             Início
         </a>
 

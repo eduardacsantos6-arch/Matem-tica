@@ -5,6 +5,7 @@ $pageTitle = "Álgebra Linear | Determinante";
 ?>
 
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
@@ -18,8 +19,8 @@ $pageTitle = "Álgebra Linear | Determinante";
 
     <title><?= $pageTitle ?></title>
 
-<link rel="stylesheet" href="templates/css/global.css">
-<link rel="stylesheet" href="templates/css/determinante.css">
+    <link rel="stylesheet" href="../templates/css/global.css">
+    <link rel="stylesheet" href="../templates/css/determinante.css">
 
 </head>
 
@@ -27,7 +28,7 @@ $pageTitle = "Álgebra Linear | Determinante";
 
 <header class="header">
 
-    <a href="index.php" class="logo">
+    <a href="../index.php" class="logo">
 
         <span class="logo-symbol">
             λ
@@ -50,7 +51,7 @@ $pageTitle = "Álgebra Linear | Determinante";
 
     <nav class="nav">
 
-        <a href="index.php">
+        <a href="../index.php">
             Início
         </a>
 
@@ -88,6 +89,9 @@ $pageTitle = "Álgebra Linear | Determinante";
 
 <main class="page">
 
+
+    <!-- HERO -->
+
     <section class="page-hero">
 
         <div>
@@ -101,10 +105,8 @@ $pageTitle = "Álgebra Linear | Determinante";
             </h1>
 
             <p>
-
                 Calcule o determinante de matrizes de ordem 1,
                 2 e 3 utilizando os métodos definidos no projeto.
-
             </p>
 
         </div>
@@ -116,6 +118,8 @@ $pageTitle = "Álgebra Linear | Determinante";
 
     </section>
 
+
+    <!-- FORMULÁRIO -->
 
     <section class="det-content">
 
@@ -151,6 +155,7 @@ $pageTitle = "Álgebra Linear | Determinante";
                     Ordem da matriz
                 </label>
 
+
                 <select
                     id="ordem"
                     name="ordem"
@@ -164,7 +169,10 @@ $pageTitle = "Álgebra Linear | Determinante";
                         2 × 2
                     </option>
 
-                    <option value="3" selected>
+                    <option
+                        value="3"
+                        selected
+                    >
                         3 × 3
                     </option>
 
@@ -267,6 +275,8 @@ $pageTitle = "Álgebra Linear | Determinante";
         </div>
 
 
+        <!-- MÉTODOS -->
+
         <div class="methods card">
 
             <span class="eyebrow">
@@ -366,6 +376,8 @@ $pageTitle = "Álgebra Linear | Determinante";
     </section>
 
 
+    <!-- TESTES -->
+
     <section class="test-section">
 
         <div>
@@ -409,6 +421,8 @@ $pageTitle = "Álgebra Linear | Determinante";
 
 </main>
 
+
+<!-- FOOTER -->
 
 <footer class="footer">
 

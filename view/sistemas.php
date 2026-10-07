@@ -18,15 +18,8 @@ $pageTitle = "Álgebra Linear | Sistemas Lineares";
 
     <title><?= $pageTitle ?></title>
 
-    <link
-        rel="stylesheet"
-        href="templates/css/global.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="templates/css/sistemas.css"
-    >
+<link rel="stylesheet" href="../templates/css/global.css">
+<link rel="stylesheet" href="../templates/css/sistemas.css">
 
 </head>
 
@@ -34,7 +27,7 @@ $pageTitle = "Álgebra Linear | Sistemas Lineares";
 
 <header class="header">
 
-    <a href="index.php" class="logo">
+     <a href="../index.php" class="logo">
 
         <span class="logo-symbol">
             λ
@@ -57,7 +50,7 @@ $pageTitle = "Álgebra Linear | Sistemas Lineares";
 
     <nav class="nav">
 
-        <a href="index.php">
+        <a href="../index.php">
             Início
         </a>
 

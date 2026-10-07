@@ -1,11 +1,14 @@
 <?php
+
 $pageTitle = "Álgebra Linear em PHP";
+
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,27 +16,37 @@ $pageTitle = "Álgebra Linear em PHP";
 
     <link rel="stylesheet" href="templates/css/global.css">
     <link rel="stylesheet" href="templates/css/index.css">
+
 </head>
 
 <body>
 
     <!-- HEADER -->
+
     <header class="header">
 
         <div class="header-content">
 
-            <a href="index.php" class="logo">
+            <a href="../index.php" class="logo">
 
                 <div class="logo-symbol">
                     λ
                 </div>
 
                 <div class="logo-text">
-                    <strong>Álgebra Linear</strong>
-                    <span>Matemática • Lógica • PHP</span>
+
+                    <strong>
+                        Álgebra Linear
+                    </strong>
+
+                    <span>
+                        Matemática • Lógica • PHP
+                    </span>
+
                 </div>
 
             </a>
+
 
             <nav class="nav">
 
@@ -41,25 +54,26 @@ $pageTitle = "Álgebra Linear em PHP";
                     Início
                 </a>
 
-                <a href="matrizes.php">
+                <a href="view/matrizes.php">
                     Matrizes
                 </a>
 
-                <a href="determinante.php">
+                <a href="view/determinante.php">
                     Determinante
                 </a>
 
-                <a href="inversa.php">
+                <a href="view/inversa.php">
                     Inversa
                 </a>
 
-                <a href="sistemas.php">
+                <a href="view/sistemas.php">
                     Sistemas
                 </a>
 
             </nav>
 
-            <a href="matrizes.php" class="header-button">
+
+            <a href="view/matrizes.php" class="header-button">
                 Começar →
             </a>
 
@@ -69,9 +83,12 @@ $pageTitle = "Álgebra Linear em PHP";
 
 
     <!-- CONTEÚDO PRINCIPAL -->
+
     <main class="page">
 
+
         <!-- HERO -->
+
         <section class="hero">
 
             <div class="hero-content">
@@ -90,13 +107,14 @@ $pageTitle = "Álgebra Linear em PHP";
                     e resolver sistemas lineares.
                 </p>
 
+
                 <div class="hero-buttons">
 
-                    <a href="matrizes.php" class="button primary">
+                    <a href="view/matrizes.php" class="button primary">
                         Trabalhar com matrizes →
                     </a>
 
-                    <a href="sistemas.php" class="button secondary">
+                    <a href="view/sistemas.php" class="button secondary">
                         Resolver sistema
                     </a>
 
@@ -133,6 +151,7 @@ $pageTitle = "Álgebra Linear em PHP";
 
 
         <!-- SOBRE O PROJETO -->
+
         <section class="project-section">
 
             <div class="section-heading">
@@ -156,7 +175,9 @@ $pageTitle = "Álgebra Linear em PHP";
 
             <div class="project-grid">
 
+
                 <!-- CARD 1 -->
+
                 <article class="project-card">
 
                     <div class="project-icon">
@@ -176,7 +197,7 @@ $pageTitle = "Álgebra Linear em PHP";
                         de matrizes.
                     </p>
 
-                    <a href="matrizes.php" class="card-link">
+                    <a href="view/matrizes.php" class="card-link">
                         Acessar →
                     </a>
 
@@ -184,6 +205,7 @@ $pageTitle = "Álgebra Linear em PHP";
 
 
                 <!-- CARD 2 -->
+
                 <article class="project-card">
 
                     <div class="project-icon">
@@ -203,7 +225,7 @@ $pageTitle = "Álgebra Linear em PHP";
                         de ordem 1, 2 e 3.
                     </p>
 
-                    <a href="determinante.php" class="card-link">
+                    <a href="view/determinante.php" class="card-link">
                         Acessar →
                     </a>
 
@@ -211,6 +233,7 @@ $pageTitle = "Álgebra Linear em PHP";
 
 
                 <!-- CARD 3 -->
+
                 <article class="project-card">
 
                     <div class="project-icon">
@@ -230,7 +253,7 @@ $pageTitle = "Álgebra Linear em PHP";
                         determinante e matriz adjunta.
                     </p>
 
-                    <a href="inversa.php" class="card-link">
+                    <a href="view/inversa.php" class="card-link">
                         Acessar →
                     </a>
 
@@ -238,6 +261,7 @@ $pageTitle = "Álgebra Linear em PHP";
 
 
                 <!-- CARD 4 -->
+
                 <article class="project-card">
 
                     <div class="project-icon">
@@ -257,11 +281,12 @@ $pageTitle = "Álgebra Linear em PHP";
                         utilizando a Regra de Cramer.
                     </p>
 
-                    <a href="sistemas.php" class="card-link">
+                    <a href="view/sistemas.php" class="card-link">
                         Acessar →
                     </a>
 
                 </article>
+
 
             </div>
 
@@ -269,6 +294,7 @@ $pageTitle = "Álgebra Linear em PHP";
 
 
         <!-- METODOLOGIA -->
+
         <section class="methodology">
 
             <span class="eyebrow">
@@ -288,6 +314,7 @@ $pageTitle = "Álgebra Linear em PHP";
 
 
             <div class="methodology-grid">
+
 
                 <div class="method-item">
 
@@ -330,12 +357,14 @@ $pageTitle = "Álgebra Linear em PHP";
 
                 </div>
 
+
             </div>
 
         </section>
 
 
         <!-- TECNOLOGIAS -->
+
         <section class="technologies">
 
             <div class="section-heading">
@@ -389,10 +418,12 @@ $pageTitle = "Álgebra Linear em PHP";
 
         </section>
 
+
     </main>
 
 
     <!-- FOOTER -->
+
     <footer class="footer">
 
         <div class="footer-content">
@@ -416,11 +447,11 @@ $pageTitle = "Álgebra Linear em PHP";
                     Início
                 </a>
 
-                <a href="matrizes.php">
+                <a href="view/matrizes.php">
                     Matrizes
                 </a>
 
-                <a href="sistemas.php">
+                <a href="view/sistemas.php">
                     Sistemas
                 </a>
 
@@ -429,6 +460,7 @@ $pageTitle = "Álgebra Linear em PHP";
         </div>
 
     </footer>
+
 
 </body>
 </html>

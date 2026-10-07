@@ -1,82 +1,70 @@
 <?php
 
-require_once __DIR__ . '/Model/AlgebraLinear.php';
-require_once __DIR__ . '/Controller/MatrizController.php';
+require_once __DIR__ . '/../model/AlgebraLinear.php';
+require_once __DIR__ . '/../controller/MatrizController.php';
 
 use Controller\MatrizController;
-
-$pageTitle = "Álgebra Linear | Resultado";
 
 $tipo = $_POST['tipo'] ?? '';
 
 $resultado = null;
 $erro = null;
 
-$nomeOperacao = '';
-
-
 try {
 
     $controller = new MatrizController();
 
+    if ($tipo === 'soma') {
 
-    switch ($tipo) {
+        $matrizA = $_POST['matrizA'] ?? [];
+        $matrizB = $_POST['matrizB'] ?? [];
 
-        case 'soma':
+        $resultado = $controller->somar(
+            $matrizA,
+            $matrizB
+        );
 
-            $nomeOperacao = 'Soma de matrizes';
+    } elseif ($tipo === 'subtracao') {
 
-            $matrizA = $_POST['matrizA'] ?? [];
-            $matrizB = $_POST['matrizB'] ?? [];
+        $matrizA = $_POST['matrizA'] ?? [];
+        $matrizB = $_POST['matrizB'] ?? [];
 
-            $resultado = $controller->somar($matrizA, $matrizB);
+        $resultado = $controller->subtrair(
+            $matrizA,
+            $matrizB
+        );
 
-            break;
+    } elseif ($tipo === 'multiplicacao') {
 
+        $matrizA = $_POST['matrizA'] ?? [];
+        $matrizB = $_POST['matrizB'] ?? [];
 
-        case 'subtracao':
+        $resultado = $controller->multiplicar(
+            $matrizA,
+            $matrizB
+        );
 
-            $nomeOperacao = 'Subtração de matrizes';
+    } elseif ($tipo === 'transposta') {
 
-            $matrizA = $_POST['matrizA'] ?? [];
-            $matrizB = $_POST['matrizB'] ?? [];
+        $matriz = $_POST['matriz'] ?? [];
 
-            $resultado = $controller->subtrair($matrizA, $matrizB);
+        $resultado = $controller->transpor(
+            $matriz
+        );
 
-            break;
+    } else {
 
-        case 'multiplicacao':
-
-            $nomeOperacao = 'Multiplicação de matrizes';
-
-            $matrizA = $_POST['matrizA'] ?? [];
-            $matrizB = $_POST['matrizB'] ?? [];
-
-            $resultado = $controller->multiplicar($matrizA, $matrizB);
-
-            break;
-
-        case 'transposta':
-
-            $nomeOperacao = 'Transposição de matriz';
-
-            $matriz = $_POST['matriz'] ?? [];
-
-            $resultado = $controller->transpor($matriz);
-
-            break;
-
-        default:
-
-            throw new Exception (
-                'Operação não identificada.');
+        throw new Exception(
+            "Operação não identificada."
+        );
     }
 
 } catch (Throwable $e) {
 
     $erro = $e->getMessage();
-
 }
+
+$pageTitle = "Álgebra Linear | Resultado";
 
 ?>
 
@@ -95,15 +83,8 @@ try {
 
     <title><?= $pageTitle ?></title>
 
-    <link
-        rel="stylesheet"
-        href="templates/css/global.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="templates/css/resultado.css"
-    >
+<link rel="stylesheet" href="../templates/css/global.css">
+<link rel="stylesheet" href="../templates/css/resultado.css">
 
 </head>
 
@@ -111,7 +92,7 @@ try {
 
 <header class="header">
 
-    <a href="index.php" class="logo">
+  <a href="../index.php" class="logo">
 
         <span class="logo-symbol">
             λ
@@ -133,30 +114,30 @@ try {
 
     <nav class="nav">
 
-        <a href="index.php">
-            Início
-        </a>
+    <a href="../index.php">
+        Início
+    </a>
 
-        <a href="matrizes.php">
-            Matrizes
-        </a>
+    <a href="matrizes.php" class="active">
+        Matrizes
+    </a>
 
-        <a href="determinante.php">
-            Determinante
-        </a>
+    <a href="determinante.php">
+        Determinante
+    </a>
 
-        <a href="inversa.php">
-            Inversa
-        </a>
+    <a href="inversa.php">
+        Inversa
+    </a>
 
-        <a href="sistemas.php">
-            Sistemas
-        </a>
+    <a href="sistemas.php">
+        Sistemas
+    </a>
 
-    </nav>
+</nav>
 
     <a
-        href="index.php"
+        href="../index.php">
         class="header-button"
     >
         Início

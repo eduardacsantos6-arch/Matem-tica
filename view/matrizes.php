@@ -43,8 +43,8 @@ $linhasB = $colunasA;
 
     <title><?= $pageTitle ?></title>
 
-    <link rel="stylesheet" href="templates/css/global.css">
-    <link rel="stylesheet" href="templates/css/matrizes.css">
+<link rel="stylesheet" href="../templates/css/global.css">
+<link rel="stylesheet" href="../templates/css/matrizes.css">
 
 </head>
 
@@ -52,7 +52,7 @@ $linhasB = $colunasA;
 
 <header class="header">
 
-    <a href="index.php" class="logo">
+     <a href="../index.php" class="logo">
 
         <span class="logo-symbol">
             λ
@@ -73,33 +73,14 @@ $linhasB = $colunasA;
     </a>
 
     <nav class="nav">
-
-        <a href="index.php">
-            Início
-        </a>
-
-        <a href="matrizes.php" class="active">
-            Matrizes
-        </a>
-
-        <a href="determinante.php">
-            Determinante
-        </a>
-
-        <a href="inversa.php">
-            Inversa
-        </a>
-
-        <a href="sistemas.php">
-            Sistemas
-        </a>
-
+        <a href="../index.php">Início</a>
+        <a href="matrizes.php" class="active">Matrizes</a>
+        <a href="determinante.php">Determinante</a>
+        <a href="inversa.php">Inversa</a>
+        <a href="sistemas.php">Sistemas</a>
     </nav>
 
-    <a
-        href="sistemas.php"
-        class="header-button"
-    >
+    <a href="sistemas.php" class="header-button">
         Sistemas →
     </a>
 
