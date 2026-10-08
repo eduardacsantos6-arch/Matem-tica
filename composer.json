@@ -1,0 +1,30 @@
+{
+    "name": "sesi/integracao-matematica",
+    "description": "Álgebra Linear em PHP: operações com matrizes e sistemas lineares, validados com PHPUnit.",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Model\\": "model/",
+            "Controller\\": "controller/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:coverage": "phpunit --coverage-text --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

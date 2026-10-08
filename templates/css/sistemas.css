@@ -1,6 +1,3 @@
-/* =========================
-   CABEÇALHO
-========================= */
 
 .system-header {
     margin-bottom: 40px;
@@ -16,10 +13,6 @@
     max-width: 720px;
     color: var(--texto-claro);
 }
-
-/* =========================
-   SISTEMA
-========================= */
 
 .system-layout {
     display: grid;
@@ -43,8 +36,6 @@
     margin-bottom: 25px;
 }
 
-/* Equações */
-
 .equations {
     display: grid;
     gap: 12px;
@@ -65,10 +56,6 @@
     font-weight: bold;
     text-align: center;
 }
-
-/* =========================
-   CAMPOS
-========================= */
 
 .variable-grid {
     display: grid;
@@ -92,10 +79,6 @@
 .variable-grid input:focus {
     border-color: var(--azul-claro);
 }
-
-/* =========================
-   CLASSIFICAÇÕES
-========================= */
 
 .classification {
     padding: 30px;
@@ -143,10 +126,6 @@
     border-left: 4px solid var(--vermelho);
 }
 
-/* =========================
-   CRAMER
-========================= */
-
 .cramer-section {
     margin-top: 60px;
     padding: 35px;
@@ -179,10 +158,6 @@
     font-size: 20px;
     font-weight: bold;
 }
-
-/* =========================
-   TESTES
-========================= */
 
 .system-tests {
     margin-top: 55px;
@@ -218,10 +193,6 @@
     font-size: 12px;
 }
 
-/* =========================
-   RESPONSIVO
-========================= */
-
 @media (max-width: 800px) {
     .system-layout {
         grid-template-columns: 1fr;
@@ -240,4 +211,24 @@
     .cramer-section {
         padding: 25px;
     }
+}
+
+.equation input {
+    width: 68px;
+    height: 46px;
+
+    box-sizing: border-box;
+    padding: 0 8px;
+
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+
+    background: #ffffff;
+    text-align: center;
+
+    outline: none;
+}
+
+.equation input:focus {
+    border-color: var(--azul-claro);
 }

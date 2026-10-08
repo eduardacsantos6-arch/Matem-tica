@@ -21,13 +21,11 @@ $pageTitle = "Álgebra Linear em PHP";
 
 <body>
 
-    <!-- HEADER -->
-
     <header class="header">
 
         <div class="header-content">
 
-            <a href="../index.php" class="logo">
+            <a href="index.php" class="logo">
 
                 <div class="logo-symbol">
                     λ
@@ -46,7 +44,6 @@ $pageTitle = "Álgebra Linear em PHP";
                 </div>
 
             </a>
-
 
             <nav class="nav">
 
@@ -72,7 +69,6 @@ $pageTitle = "Álgebra Linear em PHP";
 
             </nav>
 
-
             <a href="view/matrizes.php" class="header-button">
                 Começar →
             </a>
@@ -81,13 +77,7 @@ $pageTitle = "Álgebra Linear em PHP";
 
     </header>
 
-
-    <!-- CONTEÚDO PRINCIPAL -->
-
     <main class="page">
-
-
-        <!-- HERO -->
 
         <section class="hero">
 
@@ -107,7 +97,6 @@ $pageTitle = "Álgebra Linear em PHP";
                     e resolver sistemas lineares.
                 </p>
 
-
                 <div class="hero-buttons">
 
                     <a href="view/matrizes.php" class="button primary">
@@ -121,7 +110,6 @@ $pageTitle = "Álgebra Linear em PHP";
                 </div>
 
             </div>
-
 
             <div class="hero-visual">
 
@@ -149,9 +137,6 @@ $pageTitle = "Álgebra Linear em PHP";
 
         </section>
 
-
-        <!-- SOBRE O PROJETO -->
-
         <section class="project-section">
 
             <div class="section-heading">
@@ -172,11 +157,7 @@ $pageTitle = "Álgebra Linear em PHP";
 
             </div>
 
-
             <div class="project-grid">
-
-
-                <!-- CARD 1 -->
 
                 <article class="project-card">
 
@@ -203,9 +184,6 @@ $pageTitle = "Álgebra Linear em PHP";
 
                 </article>
 
-
-                <!-- CARD 2 -->
-
                 <article class="project-card">
 
                     <div class="project-icon">
@@ -230,9 +208,6 @@ $pageTitle = "Álgebra Linear em PHP";
                     </a>
 
                 </article>
-
-
-                <!-- CARD 3 -->
 
                 <article class="project-card">
 
@@ -259,9 +234,6 @@ $pageTitle = "Álgebra Linear em PHP";
 
                 </article>
 
-
-                <!-- CARD 4 -->
-
                 <article class="project-card">
 
                     <div class="project-icon">
@@ -287,13 +259,9 @@ $pageTitle = "Álgebra Linear em PHP";
 
                 </article>
 
-
             </div>
 
         </section>
-
-
-        <!-- METODOLOGIA -->
 
         <section class="methodology">
 
@@ -312,9 +280,7 @@ $pageTitle = "Álgebra Linear em PHP";
                 seu funcionamento.
             </p>
 
-
             <div class="methodology-grid">
-
 
                 <div class="method-item">
 
@@ -329,7 +295,6 @@ $pageTitle = "Álgebra Linear em PHP";
 
                 </div>
 
-
                 <div class="method-item">
 
                     <strong>
@@ -342,7 +307,6 @@ $pageTitle = "Álgebra Linear em PHP";
                     </span>
 
                 </div>
-
 
                 <div class="method-item">
 
@@ -357,13 +321,9 @@ $pageTitle = "Álgebra Linear em PHP";
 
                 </div>
 
-
             </div>
 
         </section>
-
-
-        <!-- TECNOLOGIAS -->
 
         <section class="technologies">
 
@@ -378,7 +338,6 @@ $pageTitle = "Álgebra Linear em PHP";
                 </h2>
 
             </div>
-
 
             <div class="tech-list">
 
@@ -418,11 +377,7 @@ $pageTitle = "Álgebra Linear em PHP";
 
         </section>
 
-
     </main>
-
-
-    <!-- FOOTER -->
 
     <footer class="footer">
 
@@ -439,7 +394,6 @@ $pageTitle = "Álgebra Linear em PHP";
                 </p>
 
             </div>
-
 
             <div class="footer-links">
 
@@ -460,7 +414,6 @@ $pageTitle = "Álgebra Linear em PHP";
         </div>
 
     </footer>
-
 
 </body>
 </html>

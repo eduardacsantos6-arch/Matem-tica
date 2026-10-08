@@ -18,10 +18,6 @@
     --raio: 18px;
 }
 
-/* =========================
-   RESET
-========================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -50,10 +46,6 @@ select {
     font: inherit;
 }
 
-/* =========================
-   HEADER
-========================= */
-
 .header {
     width: 100%;
 
@@ -66,10 +58,6 @@ select {
 
     z-index: 100;
 }
-
-
-/* Header com .header-content
-   usado pelo index.php */
 
 .header-content {
     width: 100%;
@@ -87,10 +75,6 @@ select {
     gap: 25px;
 }
 
-
-/* Header usado nas outras páginas
-   que não possuem .header-content */
-
 .header:not(:has(.header-content)) {
     min-height: 76px;
 
@@ -101,10 +85,6 @@ select {
 
     gap: 25px;
 }
-
-
-
-/* Logo */
 
 .logo {
     display: flex;
@@ -146,8 +126,6 @@ select {
     color: var(--texto-claro);
     font-size: 11px;
 }
-
-/* Navegação */
 
 .nav {
     display: flex;
@@ -192,8 +170,6 @@ select {
     transform: translateX(-50%);
 }
 
-/* Botão do header */
-
 .header-button {
     background: var(--azul-escuro);
     color: white;
@@ -211,10 +187,6 @@ select {
     background: var(--azul);
     transform: translateY(-1px);
 }
-
-/* =========================
-   CONTEÚDO GERAL
-========================= */
 
 .page {
     max-width: 1180px;
@@ -251,10 +223,6 @@ select {
     color: var(--texto-claro);
     font-size: 16px;
 }
-
-/* =========================
-   BOTÕES
-========================= */
 
 .button {
     display: inline-flex;
@@ -311,20 +279,12 @@ select {
     width: 100%;
 }
 
-/* =========================
-   CARDS
-========================= */
-
 .card {
     background: var(--branco);
     border: 1px solid var(--borda);
     border-radius: var(--raio);
     box-shadow: var(--sombra);
 }
-
-/* =========================
-   FORMULÁRIOS
-========================= */
 
 .form-group {
     display: flex;
@@ -362,10 +322,6 @@ select {
     box-shadow: 0 0 0 3px rgba(42, 167, 184, 0.12);
 }
 
-/* =========================
-   STEP
-========================= */
-
 .step {
     display: inline-flex;
     align-items: center;
@@ -384,10 +340,6 @@ select {
     font-size: 12px;
     font-weight: bold;
 }
-
-/* =========================
-   FOOTER
-========================= */
 
 .footer {
     background: var(--azul-escuro);
@@ -429,10 +381,6 @@ select {
 .footer-links a:hover {
     color: white;
 }
-
-/* =========================
-   RESPONSIVIDADE
-========================= */
 
 @media (max-width: 900px) {
     .header-content {
